@@ -3,58 +3,31 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let context = canvas.getContext("2d");
 
-context.lineWidth = 1;
-context.strokeStyle = "#f4f4f4";
-context.beginPath();
-context.fillStyle = "#f4f4f4";
-context.fillRect(0, 0, 500, 500);
-context.fillStyle = "#f4f4f4";
+signature();
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(40, 40, 85, 85);
-context.fillStyle = "#e4848c";
+function signature() {
+  context.beginPath();
+  context.fillStyle = "#f4f4f4";
+  context.fillRect(0, 0, 500, 500);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(210, 40, 85, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(40, 40, 85, 85);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(380, 40, 85, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(210, 40, 85, 85);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(40, 380, 85, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(380, 40, 85, 85);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(210, 380, 85, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(40, 380, 85, 85);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(380, 380, 85, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(210, 380, 85, 85);
 
-context.lineWidth = 1;
-context.strokeStyle = "#e4848c";
-context.beginPath();
-context.fillStyle = "#e4848c";
-context.fillRect(40, 295, 425, 85);
-context.fillStyle = "#e4848c";
+  context.fillStyle = "#e4848c";
+  context.fillRect(380, 380, 85, 85);
+
+  context.fillStyle = "#e4848c";
+  context.fillRect(40, 295, 425, 85);
+}
