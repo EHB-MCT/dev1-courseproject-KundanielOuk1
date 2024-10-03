@@ -13,21 +13,15 @@ function signature() {
   context.fillStyle = "#e4848c";
   context.fillRect(40, 40, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(210, 40, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(380, 40, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(40, 380, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(210, 380, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(380, 380, 85, 85);
 
-  context.fillStyle = "#e4848c";
   context.fillRect(40, 295, 425, 85);
 }
