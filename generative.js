@@ -6,7 +6,6 @@ let width = context.canvas.width;
 let height = context.canvas.height;
 
 drawBackground();
-drawTriangle();
 //drawLineOfTriangles();
 drawMultipleLinesOfTriangles();
 
@@ -32,18 +31,19 @@ function drawMultipleLinesOfTriangles() {
   let canvasWidth = canvas.width;
   let canvasHeight = canvas.height;
 
-  let margin = 0.05 * canvasWidth;
-  let size = 0.1 * canvasWidth;
-  let spacingX = size;
-  let spacingY = size;
-  let numLines = 5;
-  let trianglesPerLine = Math.floor((canvasWidth - 2 * margin) / spacingX);
+  let margin = 0.05 * canvasWidth; // 5% van canvas width als margiin gebruiken
+  let size = 0.1 * canvasWidth; //Driehoek is even groot als 10% van canvas width
+  let spacingX = size; //Driehoeken raken elkaar horizontaal aan
+  let spacingY = size; //Driehoeken raken elkaar verticaal aan
+  let numLines = 5; // Aantal lijnen
+  let trianglesPerLine = Math.floor((canvasWidth - 2 * margin) / spacingX); //aantal driehoeken per lijn
 
   for (let line = 0; line < numLines; line++) {
-    let startY = margin + line * spacingY;
+    let startY = margin + line * spacingY; //y positie van elke lijn
     for (let i = 0; i < trianglesPerLine; i++) {
-      let x = margin + i * spacingX;
-      drawTriangle(x, startY, size);
+      //tekent een lijn met driehoeken op huidige y positie
+      let x = margin + i * spacingX; //x positie van elke driehoek
+      drawTriangle(x, startY, size); //tekent driehoek
     }
   }
 }
