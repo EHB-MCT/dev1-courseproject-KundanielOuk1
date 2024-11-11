@@ -8,7 +8,7 @@ const cy = 100;
 let width = context.canvas.width;
 let height = context.canvas.height;
 
-//drawBackground();
+drawBackground();
 drawTriangle();
 
 function drawBackground() {
