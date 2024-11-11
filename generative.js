@@ -35,7 +35,7 @@ function drawMultipleLinesOfTriangles() {
   let margin = 0.05 * canvasWidth;
   let size = 0.1 * canvasWidth;
   let spacingX = 0.15 * canvasWidth;
-  let spacingY = 0.15 * canvasHeight;
+  let spacingY = size;
   let numLines = 5;
   let trianglesPerLine = Math.floor((canvasWidth - 2 * margin) / spacingX);
 
