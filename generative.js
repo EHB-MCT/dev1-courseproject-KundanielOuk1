@@ -27,14 +27,14 @@ function drawUpwardTriangle(x, y, size) {
   context.stroke();
 }
 
-function drawDawnwardTriangle(x, y, size) {
+function drawDownwardTriangle(x, y, size) {
   context.beginPath();
   context.moveTo(x, y);
   context.lineTo(x - size / 2, y - size);
   context.lineTo(x + size / 2, y - size);
   context.closePath();
 
-  context.fillStyle = "blue";
+  context.fillStyle = "red";
   context.fill();
   context.strokeStyle = "black";
   context.stroke();
@@ -63,7 +63,11 @@ function drawMultipleLinesOfTriangles() {
     for (let i = 0; i < trianglesPerLine; i++) {
       //tekent een lijn met driehoeken op huidige y positie
       let x = margin + i * spacingX + random; //x positie van elke driehoek + waarde random
-      drawTriangle(x, startY, size); //tekent driehoek
+      if (i % 2 === 0) {
+        drawUpwardTriangle(x, startY, size);
+      } else {
+        drawDownwardTriangle(x, startY, size);
+      }
     }
   }
 }
