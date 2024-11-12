@@ -14,11 +14,24 @@ function drawBackground() {
   context.fillRect(0, 0, width, height);
 }
 
-function drawTriangle(x, y, size) {
+function drawUpwardTriangle(x, y, size) {
   context.beginPath();
   context.moveTo(x, y);
   context.lineTo(x - size / 2, y + size);
   context.lineTo(x + size / 2, y + size);
+  context.closePath();
+
+  context.fillStyle = "blue";
+  context.fill();
+  context.strokeStyle = "black";
+  context.stroke();
+}
+
+function drawDawnwardTriangle(x, y, size) {
+  context.beginPath();
+  context.moveTo(x, y);
+  context.lineTo(x - size / 2, y - size);
+  context.lineTo(x + size / 2, y - size);
   context.closePath();
 
   context.fillStyle = "blue";
