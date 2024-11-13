@@ -21,10 +21,13 @@ function drawUpwardTriangle(x, y, size) {
   context.lineTo(x + size / 2, y + size);
   context.closePath();
 
-  context.fillStyle = "blue";
+  let h = 0;
+  let s = Math.random() * 50 + 50;
+  let l = Math.random() * 50 + 50;
+  let a = Math.random();
+
+  context.fillStyle = `hsla(${h}, ${s}%, ${l}%, ${a})`;
   context.fill();
-  context.strokeStyle = "black";
-  context.stroke();
 }
 
 function drawDownwardTriangle(x, y, size) {
@@ -34,17 +37,20 @@ function drawDownwardTriangle(x, y, size) {
   context.lineTo(x + size / 2, y - size);
   context.closePath();
 
-  context.fillStyle = "red";
+  let h = 250;
+  let s = Math.random() * 50 + 50;
+  let l = Math.random() * 50 + 50;
+  let a = Math.random();
+
+  context.fillStyle = `hsla(${h}, ${s}%, ${l}%, ${a})`;
   context.fill();
-  context.strokeStyle = "black";
-  context.stroke();
 }
 
 function drawMultipleLinesOfTriangles() {
   let canvasWidth = canvas.width;
   let canvasHeight = canvas.height;
 
-  let margin = 0.05 * canvasWidth; // 5% van canvas width als margiin gebruiken
+  let margin = 0.05 * canvasWidth; // 5% van canvas width als margin gebruiken
   let size = 0.1 * canvasWidth; //Driehoek is even groot als 10% van canvas width
   let spacingX = size; //Driehoeken raken elkaar horizontaal aan
   let spacingY = size; //Driehoeken raken elkaar verticaal aan
@@ -63,6 +69,7 @@ function drawMultipleLinesOfTriangles() {
     for (let i = 0; i < trianglesPerLine; i++) {
       //tekent een lijn met driehoeken op huidige y positie
       let x = margin + i * spacingX + random; //x positie van elke driehoek + waarde random
+      //line geeft een horizontale patroon en i geeft een unieke patroon
       if (i % 2 === 0) {
         drawUpwardTriangle(x, startY, size);
       } else {
