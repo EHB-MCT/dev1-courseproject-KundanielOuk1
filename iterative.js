@@ -43,22 +43,34 @@ function generateRandomColor(hue) {
 }
 
 function drawTriangles() {
-    triangles.forEach((triangle) => {
-      context.beginPath();
-      if (triangle.upward) {
-        context.moveTo(triangle.x, triangle.y);
-        context.lineTo(triangle.x - triangle.size / 2, triangle.y + triangle.size);
-        context.lineTo(triangle.x + triangle.size / 2, triangle.y + triangle.size);
+  triangles.forEach((triangle) => {
+    context.beginPath();
+    if (triangle.upward) {
+      context.moveTo(triangle.x, triangle.y);
+      context.lineTo(
+        triangle.x - triangle.size / 2,
+        triangle.y + triangle.size
+      );
+      context.lineTo(
+        triangle.x + triangle.size / 2,
+        triangle.y + triangle.size
+      );
     } else {
-        context.moveTo(triangle.x, triangle.y);
-        context.lineTo(triangle.x - triangle.size / 2, triangle.y - triangle.size);
-        context.lineTo(triangle.x + triangle.size / 2, triangle.y - triangle.size);
-        context.closePath();
-        context.fillStyle = triangle.color;
-        context.fill();
-      });
+      context.moveTo(triangle.x, triangle.y);
+      context.lineTo(
+        triangle.x - triangle.size / 2,
+        triangle.y - triangle.size
+      );
+      context.lineTo(
+        triangle.x + triangle.size / 2,
+        triangle.y - triangle.size
+      );
     }
-
+    context.closePath();
+    context.fillStyle = triangle.color;
+    context.fill();
+  });
+}
 signature();
 
 function signature() {
