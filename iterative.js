@@ -35,6 +35,12 @@ function createNumTriangles() {
   }
 }
 
+function generateRandomColor(hue) {
+  let s = Math.random() * 50 + 50;
+  let l = Math.random() * 50 + 50;
+  let a = Math.random();
+  return `hsla(${hue}, ${s}%, ${l}%, ${a})`;
+}
 signature();
 
 function signature() {
