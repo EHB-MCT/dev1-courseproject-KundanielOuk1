@@ -135,5 +135,5 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
-createNumTriangles(200);
+createNumTriangles(300);
 animate();
