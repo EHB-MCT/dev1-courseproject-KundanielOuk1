@@ -71,6 +71,41 @@ function drawTriangles() {
     context.fill();
   });
 }
+
+//Update triangles gebaseerd op positie van muis
+
+function updateTriangles() {
+  let middleStartX = width / 2 - 25; //Begin zone in het midden waarbij niets beweegt (horizontaal)
+  let middleEndX = width / 2 + 25; //Einde van zone
+  let middleStartY = height / 2 - 25; //Begin zone in het midden waarbij niets beweegt (verticaal)
+  let middleEndY = height / 2 + 25; //Einde van zone
+
+  let directionX = mouseX < middleStartX ? -1 : mouseX > middleEndX ? 1 : 0;
+  let directionY = mouseY < middleStartY ? -1 : mouseY > middleEndY ? 1 : 0;
+
+  triangles.forEach((triangle) => {
+    //update de positie van elke driehoek gebaseerd op richting en snelheid
+    triangle.x += directionX * triangle.speed;
+    triangle.y += directionY * triangle.speed;
+
+    if (triangle.x < -triangle.size) {
+      //keert rechts terug wanneer het links van het scherm gaat
+      triangle.x = width + triangle.size;
+    }
+    if (triangle.x > width + triangle.size) {
+      //keert links terug wanneer het rechts van het scherm gaat
+      triangle.x = -triangle.size;
+    }
+    if (triangle.y < -triangle.size) {
+      //keert beneden terug wanneer het boven van het scherm gaat
+      triangle.y = height + triangle.size;
+    }
+    if (triangle.y > height + triangle.size) {
+      //keert boven terug wanneer het beneden van het scherm gaat
+      triangle.y = -triangle.size;
+    }
+  });
+}
 signature();
 
 function signature() {
