@@ -2,8 +2,8 @@
 import context from "../../scripts/context.js";
 import * as Utils from "../../scripts/utils.js";
 
-let canvasWidth = context.canvas.width;
-let canvasHeight = context.canvas.height;
+let width = context.canvas.width;
+let height = context.canvas.height;
 
 let triangles = [];
 
@@ -16,19 +16,15 @@ canvas.addEventListener("mousemove", (event) => {
   mouseY = event.clientY - rect.top;
 });
 
-createNumTriangles();
-triangles();
-animate();
-
-//100 driehoeken maken
-function createNumTriangles() {
-  for (let i = 0; i < 100; i++) {
+//100 of meer driehoeken maken
+function createNumTriangles(num) {
+  for (let i = 0; i < num; i++) {
     let size = Math.random() * 30 + 10; // Willekeurige grootte tussen 10 en 40
     triangles.push({
       x: Math.random() * width,
       y: Math.random() * height,
       size: size,
-      speed: (Math.random() * 1 + 0.5) * 0.05, // Snelheid
+      speed: (Math.random() * 1 + 0.5) * 5, // Snelheid
       upward: Math.random() > 0.5, // willekeurig omhoog of omlaag driehoek
       color: generateRandomColor(Math.random() > 0.5 ? 0 : 250), // Rood of blauwe hue
     });
@@ -106,11 +102,15 @@ function updateTriangles() {
     }
   });
 }
-signature();
+
+function drawBackground() {
+  context.fillStyle = "black";
+  context.fillRect(0, 0, width, height);
+}
 
 function signature() {
-  let right = canvasWidth - 500;
-  let bottom = canvasHeight - 500;
+  let right = width - 500;
+  let bottom = height - 500;
 
   context.beginPath();
   context.fillStyle = "#f4f4f4";
@@ -125,3 +125,15 @@ function signature() {
   context.fillRect(right + 380, bottom + 380, 85, 85);
   context.fillRect(right + 40, bottom + 295, 425, 85);
 }
+
+function animate() {
+  context.clearRect(0, 0, width, height);
+  drawBackground();
+  updateTriangles();
+  drawTriangles();
+  signature();
+  requestAnimationFrame(animate);
+}
+
+createNumTriangles(200);
+animate();
